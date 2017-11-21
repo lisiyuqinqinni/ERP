@@ -3,7 +3,7 @@
 	<div class="box">
 		<h5>合同照片</h5>
 		<div v-for="item,index in arrImg.photo" class="echo">
-			<img :src="'http://202.102.83.22:9527'+item" alt="">
+			<img :src="'http://erp.ourkyj.com'+item" alt="">
 			<span @click="delImg(arrImg.photo,index,item)"><img src="../../assets/del.png" alt=""></span>
 		</div>
 		<vue-core-image-upload
@@ -22,7 +22,7 @@
 	<div class="box">
 		<h5>客户身份证照片</h5>
 		<div v-for="item,index in arrImg.idcards" class="echo">
-			<img :src="'http://202.102.83.22:9527'+item" alt="">
+			<img :src="'http://erp.ourkyj.com'+item" alt="">
 			<span @click="delImg(arrImg.idcards,index,item)"><img src="../../assets/del.png" alt=""></span>
 		</div>
 		<vue-core-image-upload
@@ -40,7 +40,7 @@
   	<div class="box">
 		<h5>其他照片</h5>
 		<div v-for="item,index in arrImg.other_photos" class="echo">
-			<img :src="'http://202.102.83.22:9527'+item" alt="">
+			<img :src="'http://erp.ourkyj.com'+item" alt="">
 			<span @click="delImg(arrImg.other_photos,index,item)"><img src="../../assets/del.png" alt=""></span>
 		</div>
 		<vue-core-image-upload

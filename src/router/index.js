@@ -4,11 +4,11 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import listInfo from '@/components/info'
 import List from '@/components/list'
-import contractMain from '@/components/contract/contractMain'
-import contract from '@/components/contract/contract'
-import supporting from '@/components/contract/supporting'
-import original from '@/components/contract/original'
-import imgUpload from '@/components/contract/img-upload'
+import contractMain from '@/components/cz_contract/contractMain'
+import contract from '@/components/cz_contract/contract'
+import supporting from '@/components/cz_contract/supporting'
+import original from '@/components/cz_contract/original'
+import imgUpload from '@/components/cz_contract/img-upload'
 
 Vue.use(Router)
 

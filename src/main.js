@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import qs from 'qs'
+import VueJsonp from 'vue-jsonp'
 import VueScroller from 'vue-scroller'
 import {ToastPlugin } from 'vux'
 
@@ -13,7 +14,7 @@ import Axios from 'axios'
 import VueAxios from 'vue-axios'
 import Utils from './lib/utils'
 Vue.config.productionTip = false
-Axios.defaults.baseURL = 'http://erp.ourkyj.com/cougaerp/'
+Axios.defaults.baseURL = 'http://localhost:8080/cougaerp/'
 
 let formPost = Axios.create({
     transformRequest: [function (data) {
@@ -23,7 +24,7 @@ let formPost = Axios.create({
     }]
 })
 let imgPost = Axios.create({
-    baseURL: 'http://202.102.83.22:9527/cougafile/file/',
+    baseURL: 'http://localhost:8080/cougafile/file/',
     transformRequest: [function (data) {
       // 对 data 进行任意转换处理
       data = qs.stringify(data)
@@ -63,6 +64,7 @@ let arrPost = Axios.create({
       return data
     }]
 })
+Vue.use(VueJsonp)
 Vue.use(VueScroller)
 Vue.use(ToastPlugin)
 Vue.use(Utils)

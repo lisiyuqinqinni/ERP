@@ -172,9 +172,15 @@ export default {
       
     },
     addDate () {
-         let ds=this.parames.start_time.split('-');
-         let d=new Date( ds[0],ds[1]-1+Number(this.parames.term),ds[2])
-         this.parames.end_time = d.toLocaleDateString().match(/\d+/g).join('-')  
+        if(this.parames.start_time!=''){
+          let ds=this.parames.start_time.split('-');
+          let d=new Date( ds[0],ds[1]-1+Number(this.parames.term),ds[2])
+          this.parames.end_time = d.toLocaleDateString().match(/\d+/g).join('-') 
+        }else {
+          this.$vux.toast.text("请先选择起租日", 'top')
+          this.parames.term = ''
+        }
+          
     },
     checkCode () {
       this.$formPost.post('cz_hetong/checkCode.do',{code:this.parames.code})

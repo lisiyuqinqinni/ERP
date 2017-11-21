@@ -22,7 +22,7 @@
                 <router-link v-for="item,key in dataList" tag='li' :to="{path: '/info',query: {id:item.id}}" :key="key" >
                  
                    <div class="list-img fl">
-                     <img v-if="item.fb_fj_photo[0]" :src="'http://202.102.83.22:9527'+item.fb_fj_photo[0]">
+                     <img v-if="item.fb_fj_photo[0]" :src="'http://erp.ourkyj.com'+item.fb_fj_photo[0]">
                      <img v-if="item.fb_fj_photo==''" src="../assets/list.png">
                    </div>
                    <div class="list-p fl">

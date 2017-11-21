@@ -86,7 +86,7 @@ export default {
         for (var i=0;i<this.roomInfo.fb_fj_photo.length-1;i++){
           this.demo01_list.push({
             url: 'javascript:',
-            img: 'http://202.102.83.22:9527'+this.roomInfo.fb_fj_photo[i],
+            img: 'http://erp.ourkyj.com'+this.roomInfo.fb_fj_photo[i],
             title: ''
           })
         }
