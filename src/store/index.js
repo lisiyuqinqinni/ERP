@@ -12,11 +12,9 @@ let store = new Vuex.Store({
   },
   mutations: {
     changCz_hetong(state, n) {
-      alert(1)
       state.cz_hetongId = n
     },
     changSf_hetong(state, n) {
-      alert(2)
       state.sf_hetongId = n
     },
     changHouseId (state,id) {

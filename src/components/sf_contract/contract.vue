@@ -46,7 +46,7 @@
     <group title="合同信息">
       <x-input required title="合同编号" text-align="right" type="number" @on-blur="checkCode" v-model="params.code"></x-input>
       <datetime title="起租日" v-model="params.start_time" @on-change="modMianZuQi"></datetime>
-      <x-input required title="期限(月)" text-align="right" type="number" :max="3" @on-blur="addDate" v-model="params.term"></x-input>
+      <x-input required title="期限(月)" text-align="right" type="number" :max="2" @on-blur="addDate" v-model="params.term"></x-input>
       <x-input required title="到期日" text-align="right" disabled v-model="params.end_time"></x-input>
       <Selector title="免租期" :options="free" direction="rtl" placeholder="请选择" @on-change="dateType" v-model="freedate"></Selector>
       <x-input required title="免租期共(月)" text-align="right" type="number" :max="2" v-model="params.total_frees"></x-input>
