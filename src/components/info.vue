@@ -1,7 +1,7 @@
 <template>
   <div class="info" v-if="roomInfo.fy">
     <x-header title="客有家详情" :left-options="{showBack:true}" slot="header" class="header">
-      <div slot="right"><router-link tag="div":to="{path: '/contract',query: {id:this.$route.query.id},replace: true}">租房录入</router-link></div>
+      <div slot="right"><router-link tag="div":to="{path: '/cz_contract',query: {id:this.$route.query.id},replace: true}">租房录入</router-link></div>
     </x-header>
     <div class="top">
     <div @click="infoimg">

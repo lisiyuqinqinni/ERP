@@ -24,7 +24,7 @@ let formPost = Axios.create({
     }]
 })
 let imgPost = Axios.create({
-    baseURL: 'http://localhost:8080/cougafile/file/',
+    baseURL: 'http://erp.ourkyj.com/cougafile/file/',
     transformRequest: [function (data) {
       // 对 data 进行任意转换处理
       data = qs.stringify(data)

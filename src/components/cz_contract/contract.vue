@@ -158,7 +158,7 @@ export default {
         .then( res => {
           if(res.data.status==1){
             this.$store.commit('changCz_hetong',res.data.data.id)
-            this.$router.push('/contract/supporting') ;
+            this.$router.push('/cz_contract/cz_supporting') ;
             this.nextS=true
             this.$vux.toast.text(res.data.msg, 'top')
           }

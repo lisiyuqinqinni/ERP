@@ -40,28 +40,6 @@ export default {
             }
           ]
         }
-        // {
-        //   title: '户型',
-        //   listInfo: [
-        //     {
-        //       info: '整租2'
-        //     },
-        //     {
-        //       info: '合租2'
-        //     }
-        //   ]
-        // },
-        // {
-        //   title: '其他',
-        //   listInfo: [
-        //     {
-        //       info: '整租3'
-        //     },
-        //     {
-        //       info: '合租3'
-        //     }
-        //   ]
-        // }
       ],
       screen:{
         chuzuTypeSearch:'',
@@ -159,13 +137,14 @@ ul{
 }
 .rows .listOpt{
   position:absolute;
-  top:46px;
+  top:45px;
   left:0;
   width: 100%;
   z-index: 66;
   padding:0;
   max-height: 277px;
   overflow: auto;
+  color: #666;
 }
 .rows .listOpt li{
   list-style-type: none;
