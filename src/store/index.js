@@ -7,11 +7,17 @@ Vue.use(Vuex)
 let store = new Vuex.Store({
   state: {
     cz_hetongId:'',
+    sf_hetongId:'',
     houseId:''
   },
   mutations: {
     changCz_hetong(state, n) {
+      alert(1)
       state.cz_hetongId = n
+    },
+    changSf_hetong(state, n) {
+      alert(2)
+      state.sf_hetongId = n
     },
     changHouseId (state,id) {
       state.houseId = id

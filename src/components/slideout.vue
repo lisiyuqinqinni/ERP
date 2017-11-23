@@ -1,7 +1,7 @@
 <template>
     <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" style="height:100%;">
       <nav id="menu">
-        <div>Menu</div>
+        <div class="menu">菜单</div>
         <div>
           <ul>
             <li><div @click="outLogin">退出登录</div></li>
@@ -15,7 +15,7 @@
           :left-options="{showBack:false}"
           slot="header"
           class="header">
-          <div slot="left" class="toggle-button">点击</div>
+          <div slot="left" class="toggle-button"><img style="width:25px;height:25px;" src="../assets/icon_nav_cell.png" alt="" ></div>
           <router-link tag="div" slot="right" :to="{path:'/sf_contract'}">收房录入</router-link>
           </x-header>
           <search class="search" :maxlength="10" @search='search'></search>
@@ -322,5 +322,23 @@
  
   .slideout-open .slideout-menu {
     display: block;
+  }
+  nav {
+    padding-left: 30px;
+  }
+  li{
+    list-style-type: none;
+  }
+  nav .menu{
+    color: #CC6600;
+    padding-top:30px;
+  }
+  nav ul {
+    padding-top:30px;
+  }
+  nav ul li{
+    padding-left: 10px;
+    color: #FF9900;
+    font-size: 14px;
   }
 </style> 

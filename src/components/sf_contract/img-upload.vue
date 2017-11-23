@@ -20,15 +20,69 @@
 	  </vue-core-image-upload>
 	</div>
 	<div class="box">
-		<h5>客户身份证照片</h5>
-		<div v-for="item,index in arrImg.idcards" class="echo">
+		<h5>授权委托书：</h5>
+		<div v-for="item,index in arrImg.trust_books" class="echo">
 			<img :src="'http://erp.ourkyj.com'+item" alt="">
-			<span @click="delImg(arrImg.idcards,index,item)"><img src="../../assets/del.png" alt=""></span>
+			<span @click="delImg(arrImg.trust_books,index,item)"><img src="../../assets/del.png" alt=""></span>
+		</div>
+		<vue-core-image-upload
+	    class="btn btn-primary"
+	    :crop="false"
+	    @imagechanged="imagechangedtrust_books"
+	    :max-file-size="10485760"
+	    :multiple="true"
+	    inputAccept='image/jpg,image/jpeg,image/png'
+		:multiple-size="4"
+	    :isXhr="false">
+	    <img src="../../assets/list.png" alt="">
+	  </vue-core-image-upload>
+	</div>
+	<div class="box">
+		<h5>客户身份证照片</h5>
+		<div v-for="item,index in arrImg.owner_cards" class="echo">
+			<img :src="'http://erp.ourkyj.com'+item" alt="">
+			<span @click="delImg(arrImg.owner_cards,index,item)"><img src="../../assets/del.png" alt=""></span>
 		</div>
 		<vue-core-image-upload
 	    class="btn btn-primary"
 	    :crop="false"
 	    @imagechanged="imagechangedIdcare"
+	    :max-file-size="10485760"
+	    :multiple="true"
+	    inputAccept='image/jpg,image/jpeg,image/png'
+		:multiple-size="4"
+	    :isXhr="false">
+	    <img src="../../assets/list.png" alt="">
+	  </vue-core-image-upload>
+	</div>
+	<div class="box">
+		<h5>产权证明</h5>
+		<div v-for="item,index in arrImg.room_license" class="echo">
+			<img :src="'http://erp.ourkyj.com'+item" alt="">
+			<span @click="delImg(arrImg.room_license,index,item)"><img src="../../assets/del.png" alt=""></span>
+		</div>
+		<vue-core-image-upload
+	    class="btn btn-primary"
+	    :crop="false"
+	    @imagechanged="imagechangedroom_license"
+	    :max-file-size="10485760"
+	    :multiple="true"
+	    inputAccept='image/jpg,image/jpeg,image/png'
+		:multiple-size="4"
+	    :isXhr="false">
+	    <img src="../../assets/list.png" alt="">
+	  </vue-core-image-upload>
+	</div>
+	<div class="box">
+		<h5>银行卡</h5>
+		<div v-for="item,index in arrImg.bank_photo" class="echo">
+			<img :src="'http://erp.ourkyj.com'+item" alt="">
+			<span @click="delImg(arrImg.bank_photo,index,item)"><img src="../../assets/del.png" alt=""></span>
+		</div>
+		<vue-core-image-upload
+	    class="btn btn-primary"
+	    :crop="false"
+	    @imagechanged="imagechangedbank_photo"
 	    :max-file-size="10485760"
 	    :multiple="true"
 	    inputAccept='image/jpg,image/jpeg,image/png'
@@ -79,15 +133,21 @@ export default {
       status:false,
       pecent:'0',
       arrImg:{
-        idcards:[],
+        owner_cards:[],
 	    other_photos:[],
 	    photo:[],
+	    bank_photo:[],
+	    room_license:[],
+	    trust_books:[]
       },
       params:{
-      	id:this.$store.state.cz_hetongId,
-      	idcards:'',
+      	id:this.$store.state.sf_hetongId,
+      	owner_cards:'',
       	other_photos:'',
-      	photo:''
+      	photo:'',
+      	bank_photo:'',
+      	room_license:'',
+      	trust_books:''
       }
     }
   },
@@ -97,11 +157,23 @@ export default {
 	    this.upload (res,name)
     },
     imagechangedIdcare (res){
-    	let name = 'idcards'
+    	let name = 'owner_cards'
 	    this.upload (res,name)
     },
     imagechangedOther (res){
     	let name = 'other_photos'
+	    this.upload (res,name)
+    },
+    imagechangedtrust_books (res) {
+    	let name = 'trust_books'
+	    this.upload (res,name)
+    },
+    imagechangedroom_license (res){
+    	let name = 'room_license'
+	    this.upload (res,name)
+    },
+    imagechangedbank_photo( res ){
+    	let name = 'bank_photo'
 	    this.upload (res,name)
     },
     Axaj (res,name) {
@@ -152,7 +224,6 @@ export default {
 	    	const reader = new FileReader();
 	        let self = this;
 	        reader.onload = function(e) {
-	        	console.log(e)
 	          	let src = e.target.result;
 	          	lrz(src)
 	          	.then( rst => {
@@ -176,7 +247,7 @@ export default {
     		this.params[i] = this.arrImg[i].join(";")
     		this.params[i] += ";"
     	}
-      	this.$jsonPost.post('cz_hetong/mod.do',this.params)
+      	this.$jsonPost.post('sf_hetong/mod.do',this.params)
       	.then( res => {
         	if(res.data.status==1){
           		this.$vux.toast.text(res.data.msg, 'top')

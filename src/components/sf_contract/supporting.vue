@@ -30,8 +30,8 @@ export default {
     XButton
   },
   computed: {
-    cz_hetongId () {
-      return this.$store.state.cz_hetongId
+    sf_hetongId () {
+      return this.$store.state.sf_hetongId
     }
   },
   data () {
@@ -40,7 +40,7 @@ export default {
       pts:[{
         amount:'',
         brand:'',
-        fk_ht_id:this.$store.state.cz_hetongId,
+        fk_ht_id:this.$store.state.sf_hetongId,
         name:'',
         remarks:'',
         type:''
@@ -52,7 +52,7 @@ export default {
       this.pts.push({
         amount:'',
         brand:'',
-        fk_ht_id:this.cz_hetongId,
+        fk_ht_id:this.sf_hetongId,
         name:'',
         remarks:'',
         type:''
@@ -62,10 +62,10 @@ export default {
       this.pts.length > 1 ? this.pts.pop() : this.$vux.toast.text("最少保留一个", 'top')
     },
     nextStep () {
-      this.$arrPost.post('cz_peizhi/mod.do',this.pts)
+      this.$arrPost.post('sf_peizhi/mod.do',this.pts)
       .then( res => {
         if(res.data.status==1){
-          this.$router.push('/cz_contract/cz_original');
+          this.$router.push('/sf_contract/sf_original');
           this.$vux.toast.text(res.data.msg, 'top')
         }
       })

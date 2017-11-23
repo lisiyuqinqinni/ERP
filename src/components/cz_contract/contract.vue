@@ -96,7 +96,7 @@ export default {
       sanfang: [{key: '是', value: '是'}, {key: '否', value: '否'}],
       sanfangOption: [{key: '方泽金服', value: '方泽金服'}],
       sex: [{key: '男', value: '男'}, {key: '女', value: '女'}],
-      idType: [{key: 'gd', value: '身份证'}, {key: 'gx', value: '护照'},{key: 'gx', value: '军官证'},{key: 'gx', value: '营业执照'}],
+      idType: [{key: '身份证', value: '身份证'}, {key: '护照', value: '护照'},{key: '军官证', value: '军官证'},{key: '营业执照', value: '营业执照'}],
       payment: [{key: '1', value: '月付'},{key: '2',value: '两月付'},{key: '3', value:'季付'},{key:'6',value:'半年付'},{key:'12',value:'年付'}],
       depts:[],
       users:[],

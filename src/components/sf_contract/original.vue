@@ -3,7 +3,7 @@
     <group title="原始信息">
       <x-input title="初始总电表读数" text-align="right" v-model="params.chushi_zdianbiao" type="number" :max='11'></x-input>
       <x-input title="初始分电表读数" text-align="right" v-model="params.chushi_fdianbiao"  type="number" :max='11'></x-input>
-      <x-input title="初始水表读数" text-align="right" v-model="params.chushi_shuibiao"  type="number" :max='11'></x-input>
+      <datetime title="物业费缴费截止时间" v-model="params.wuyefei_end_date"></datetime>
       <x-input title="初始燃气表读数" text-align="right" v-model="params.chushi_ranqi" type="number" :max='11'></x-input>
       <x-input title="备注" text-align="right" v-model="params.remarks"></x-input>
     </group>
@@ -14,18 +14,19 @@
 </template>
 
 <script>
-import {XInput, Group,Selector ,XButton  } from 'vux'
+import {XInput, Group,Selector ,XButton ,Datetime } from 'vux'
 export default {
   name: 'original',
   components: {
     XInput,
     Group,
     Selector,
-    XButton
+    XButton,
+    Datetime
   },
   computed: {
-    cz_hetongId () {
-      return this.$store.state.cz_hetongId
+    sf_hetongId () {
+      return this.$store.state.sf_hetongId
     }
   },
   data () {
@@ -33,20 +34,20 @@ export default {
       params:{
         chushi_zdianbiao:'',
         chushi_fdianbiao:'',
-        chushi_shuibiao:'',
+        wuyefei_end_date:'',
         chushi_ranqi:'',
         remarks:'',
-        id:this.$store.state.cz_hetongId
+        id:this.$store.state.sf_hetongId
       }
     }
   },
   
   methods:{
     nextStep () {
-      this.$jsonPost.post('cz_hetong/mod.do',this.params)
+      this.$jsonPost.post('sf_hetong/mod.do',this.params)
       .then( res => {
         if(res.data.status==1){
-          this.$router.push('/cz_contract/cz_imgUpload')
+          this.$router.push('/sf_contract/sf_imgUpload')
           this.$vux.toast.text(res.data.msg, 'top')
         }
       })
