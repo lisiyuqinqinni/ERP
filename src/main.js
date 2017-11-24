@@ -14,7 +14,7 @@ import Axios from 'axios'
 import VueAxios from 'vue-axios'
 import Utils from './lib/utils'
 Vue.config.productionTip = false
-Axios.defaults.baseURL = 'http://localhost:8080/cougaerp/'
+Axios.defaults.baseURL = 'http://erp.ourkyj.com/cougaerp/'
 
 let formPost = Axios.create({
     transformRequest: [function (data) {
