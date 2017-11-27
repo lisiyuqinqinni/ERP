@@ -3,9 +3,9 @@
     <group title="房源信息">
       <Selector title="行政区" :options="xzq" direction="rtl" placeholder="请选择行政区" @on-change="chioce" v-model="chiocexzq"></Selector>
       <Selector title="小区" :options="xq" direction="rtl" placeholder="请选择小区" v-model="params.fy.fk_xq_id"></Selector>
-      <x-input required title="座栋" text-align="right" v-model="params.fy.zd_code"></x-input>
-      <x-input required title="单元" text-align="right" v-model="params.fy.dy_code"></x-input>
-      <x-input required title="门号" text-align="right" v-model="params.fy.fj_code"></x-input>
+      <x-input required title="座栋" text-align="right" :max='5' v-model="params.fy.zd_code"></x-input>
+      <x-input required title="单元" text-align="right" :max='5' v-model="params.fy.dy_code"></x-input>
+      <x-input required title="门号" text-align="right" :max='5' v-model="params.fy.fj_code"></x-input>
       <x-input required title="地址" text-align="right" v-model="params.fy.address"></x-input>
       <x-input required title="户型(室)" text-align="right" type="number" :max="1" v-model="params.fy.shi"></x-input>
       <x-input required title="户型(厅)" text-align="right" type="number" :max="1" v-model="params.fy.ting"></x-input>
@@ -75,7 +75,7 @@
       <selector title="支付方式" :options="payment" direction="rtl" placeholder="请选择" v-model="params.fu"></selector>
       <x-input required title="提前付租(日)" text-align="right" type="number" :max="3" v-model="params.advance"></x-input>
       <datetime title="首次付租日期" v-model="params.first_pay_date"></datetime>
-      <x-input required title="其他约定" text-align="right" v-model="params.about"></x-input>
+      <x-input title="其他约定" text-align="right" v-model="params.about"></x-input>
       <selector title="签约人" :options="users" direction="rtl" placeholder="请选择" v-model="params.fk_sign_id"></selector>
       <selector title="签约部门" :options="depts" direction="rtl" placeholder="请选择" v-model="params.fk_sign_dept_id"></selector>
       <datetime title="签约时间" v-model="params.sign_time"></datetime>

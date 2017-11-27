@@ -129,7 +129,6 @@
       next(vm => {
         let info = vm.$local.fetch('info')
         let condition = vm.$local.fetch('condition')
-        console.log(condition.condition)
         vm.dataList = info.dataList
         vm.condition = condition.condition
       })
@@ -150,7 +149,7 @@
   mounted () {
     this.$nextTick(function(){
        let posInfo = this.$local.fetch('position')
-       if(posInfo){
+       if(posInfo.position){
         let vm = this
         setTimeout(function(){
           vm.$refs.myScroller.scrollTo(0,posInfo.position.top,true)

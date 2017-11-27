@@ -39,8 +39,8 @@ export default {
     this.$formPost.post('user/login.do',user)
     .then((res) => {
       if(res.data.status == '1'){
-        this.$router.push('/list')
         Axios.defaults.headers.common['Authorization'] = res.data.msg
+        this.$router.push('/list')
       }
     })
   },
