@@ -1,9 +1,10 @@
 <template>
     <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" style="height:100%;">
       <nav id="menu">
-        <div class="menu">菜单</div>
         <div>
+          <img class="logo" src="../assets/logonew.png"  alt="">
           <ul>
+            <li><div>房源管理</div></li>
             <li><div @click="outLogin">退出登录</div></li>
           </ul>
         </div>
@@ -325,19 +326,23 @@
   nav {
     padding-left: 30px;
   }
-  li{
+  nav li{
     list-style-type: none;
+    line-height: 36px;
   }
   nav .menu{
-    color: #CC6600;
     padding-top:30px;
+  }
+  nav .logo{
+    width: 100px;
+    padding-top: 20px
   }
   nav ul {
     padding-top:30px;
   }
   nav ul li{
     padding-left: 10px;
-    color: #FF9900;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bolder;
   }
 </style> 
