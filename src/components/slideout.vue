@@ -335,7 +335,7 @@
   }
   nav .logo{
     width: 100px;
-    padding-top: 20px
+    padding-top: 10px
   }
   nav ul {
     padding-top:30px;
