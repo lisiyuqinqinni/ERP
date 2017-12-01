@@ -25,7 +25,7 @@
       <x-button mini plain @click.native="delKehus">删除客户</x-button>
     </div>
     <group title="合同信息">
-      <x-input required title="合同编号" text-align="right" @on-blur="checkCode" v-model="parames.code" type='number'></x-input>
+      <x-input required title="合同编号" text-align="right" @on-blur="checkCode" v-model="parames.code"></x-input>
       <selector title="第三方资金" :options="sanfang" direction="rtl" v-model="parames.ifthird"></selector>
       <selector title="第三方" :options="sanfangOption" direction="rtl" v-if="parames.ifthird =='是'" v-model="parames.third"></selector>
       <datetime title="起租日" v-model="parames.start_time"></datetime>

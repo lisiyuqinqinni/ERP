@@ -1,77 +1,76 @@
 <template>
-    <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" style="height:100%;">
-      <nav id="menu">
+  <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" style="height:100%;">
+    <nav id="menu">
+      <div>
+        <img class="logo" src="../assets/logonew.png"  alt="">
+        <ul>
+          <li><div>房源管理</div></li>
+          <li><div @click="outLogin">退出登录</div></li>
+        </ul>
+      </div>
+    </nav>
+    <main id="panel" style="height:100%;">
+      <view-box>
+        <x-header
+        title="客有家租房"
+        :left-options="{showBack:false}"
+        slot="header"
+        class="header">
+        <div slot="left" class="toggle-button"><img style="width:25px;height:25px;" src="../assets/icon_nav_cell.png" alt="" ></div>
+        <router-link tag="div" slot="right" :to="{path:'/sf_contract'}">收房录入</router-link>
+        </x-header>
+        <search class="search" :maxlength="10" @search='search'></search>
+        <tab @screen="screen"></tab>
         <div>
-          <img class="logo" src="../assets/logonew.png"  alt="">
-          <ul>
-            <li><div>房源管理</div></li>
-            <li><div @click="outLogin">退出登录</div></li>
-          </ul>
+          <scroller
+            class="my-scorller"
+            ref="myScroller"
+            :on-refresh="refresh"
+            :on-infinite="infinite"
+            >
+            <div class="lists">
+              <ul>
+                  <router-link v-for="item,key in dataList" tag='li' :to="{path: '/info',query: {id:item.id}}" :key="key" >
+                   
+                     <div class="list-img fl">
+                       <img v-if="item.fb_fj_photo[0]" :src="'http://erp.ourkyj.com'+item.fb_fj_photo[0]">
+                       <img v-if="item.fb_fj_photo==''" src="../assets/list.png">
+                     </div>
+                     <div class="list-p fl">
+                       <h3>{{item.fy.xq.name}}</h3>
+                       <p>{{item.fy.shi}}室{{item.fy.ting}}厅--{{item.fy.orientation}}</p>
+                       <p>{{item.fy.area}}㎡ {{item.fy.floor}}/{{item.fy.floor_top}}</p>
+                       <p class="address">{{item.fy.address}}</p>
+                     </div>
+                     <div class="rt area">
+                        <p>{{item.room}}/{{item.rooms.length}}</p>
+                     </div>
+                   
+                   <p class="clear"></p>
+                 </router-link>
+               </ul>
+             </div>
+          </scroller>
         </div>
-      </nav>
-      <main id="panel" style="height:100%;">
-        <view-box>
-          <x-header
-          title="客有家租房"
-          :left-options="{showBack:false}"
-          slot="header"
-          class="header">
-          <div slot="left" class="toggle-button"><img style="width:25px;height:25px;" src="../assets/icon_nav_cell.png" alt="" ></div>
-          <router-link tag="div" slot="right" :to="{path:'/sf_contract'}">收房录入</router-link>
-          </x-header>
-          <search class="search" :maxlength="10" @search='search'></search>
-          <tab @screen="screen"></tab>
-          <div>
-            <scroller
-              class="my-scorller"
-              ref="myScroller"
-              :on-refresh="refresh"
-              :on-infinite="infinite"
-              >
-              <div class="lists">
-                <ul>
-                    <router-link v-for="item,key in dataList" tag='li' :to="{path: '/info',query: {id:item.id}}" :key="key" >
-                     
-                       <div class="list-img fl">
-                         <img v-if="item.fb_fj_photo[0]" :src="'http://erp.ourkyj.com'+item.fb_fj_photo[0]">
-                         <img v-if="item.fb_fj_photo==''" src="../assets/list.png">
-                       </div>
-                       <div class="list-p fl">
-                         <h3>{{item.fy.xq.name}}</h3>
-                         <p>{{item.fy.shi}}室{{item.fy.ting}}厅--{{item.fy.orientation}}</p>
-                         <p>{{item.fy.area}}㎡ {{item.fy.floor}}/{{item.fy.floor_top}}</p>
-                         <p class="address">{{item.fy.address}}</p>
-                       </div>
-                       <div class="rt area">
-                          <p>{{item.room}}/{{item.rooms.length}}</p>
-                       </div>
-                     
-                     <p class="clear"></p>
-                   </router-link>
-                 </ul>
-               </div>
-            </scroller>
+        <tabbar slot="bottom">
+          <div @click="allHouse" class="footer">
+            <tabbar-item>
+              <img src="../assets/icon_nav_button.png" alt="" slot="icon" >
+              <span slot="label">所有房源</span>
+            </tabbar-item>
           </div>
-          <tabbar slot="bottom">
-            <div @click="allHouse" class="footer">
-              <tabbar-item>
-                <img src="../assets/icon_nav_button.png" alt="" slot="icon" >
-                <span slot="label">所有房源</span>
-              </tabbar-item>
-            </div>
-            <div @click="houseToLet" class="footer">
-              <tabbar-item >
-                <img src="../assets/icon_nav_cell.png" alt="" slot="icon">
-                <span slot="label">可租房源</span>
-              </tabbar-item>
-            </div>
-          </tabbar>
-        </view-box>
-      </main>
-    </Slideout>
-
+          <div @click="houseToLet" class="footer">
+            <tabbar-item >
+              <img src="../assets/icon_nav_cell.png" alt="" slot="icon">
+              <span slot="label">可租房源</span>
+            </tabbar-item>
+          </div>
+        </tabbar>
+      </view-box>
+    </main>
+  </Slideout>
 </template>
- 
+
 <script>
   import Slideout from 'vue-slideout'
   import {ViewBox, XHeader, Tabbar, TabbarItem, Panel} from 'vux'
@@ -264,7 +263,7 @@
  
 <style scoped>
   body {
-   margin:0;
+  margin:0;
   padding:0;
   width:100%;
   height:100%;
