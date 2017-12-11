@@ -174,7 +174,7 @@ export default {
     addDate () {
         if(this.parames.start_time!=''){
           let ds=this.parames.start_time.split('-');
-          let d=new Date( ds[0],ds[1]-1+Number(this.parames.term),ds[2])
+          let d=new Date( ds[0],ds[1]-1+Number(this.parames.term),ds[2]-1)
           this.parames.end_time = d.toLocaleDateString().match(/\d+/g).join('-') 
         }else {
           this.$vux.toast.text("请先选择起租日", 'top')

@@ -249,7 +249,7 @@ export default {
       if(this.params.start_time!=''){
         console.log(this.params.start_time,this.params.term)
         let ds=this.params.start_time.split('-');
-        let d=new Date( ds[0],ds[1]-1+Number(this.params.term),ds[2])
+        let d=new Date( ds[0],ds[1]-1+Number(this.params.term),ds[2]-1)
         this.params.end_time = d.toLocaleDateString().match(/\d+/g).join('-') 
         this.modMianZuQi()
       }

@@ -13,7 +13,7 @@
 	    :max-file-size="10485760"
 	    :multiple="true"
 	    compress="90" 
-	    inputAccept='image/jpg,image/jpeg,image/png'
+	    inputAccept='image/*'
 		:multiple-size="4"
 	    :isXhr="false">
 	    <img src="../../assets/list.png" alt="">
