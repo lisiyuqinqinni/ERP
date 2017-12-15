@@ -1,10 +1,11 @@
 <template>
   <div class="original">
     <group title="原始信息">
-      <x-input title="初始总电表读数" text-align="right" v-model="params.chushi_zdianbiao" type="number" :max='11'></x-input>
-      <x-input title="初始分电表读数" text-align="right" v-model="params.chushi_fdianbiao"  type="number" :max='11'></x-input>
-      <datetime title="物业费缴费截止时间" v-model="params.wuyefei_end_date"></datetime>
+      <x-input title="初始电表读数" text-align="right" v-model="params.chushi_dianbiao" type="number" :max='11'></x-input>
+      <x-input title="初始水表读数" text-align="right" v-model="params.chushi_shuibiao"  type="number" :max='11'></x-input>
       <x-input title="初始燃气表读数" text-align="right" v-model="params.chushi_ranqi" type="number" :max='11'></x-input>
+      <datetime title="物业费缴费截止时间" v-model="params.wuyefei_end_date"></datetime>
+      
       <x-input title="备注" text-align="right" v-model="params.remarks"></x-input>
     </group>
     <div class="box">
@@ -32,8 +33,8 @@ export default {
   data () {
     return {
       params:{
-        chushi_zdianbiao:'',
-        chushi_fdianbiao:'',
+        chushi_dianbiao:'',
+        chushi_shuibiao:'',
         wuyefei_end_date:'',
         chushi_ranqi:'',
         remarks:'',

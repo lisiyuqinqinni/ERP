@@ -17,6 +17,9 @@
       </ul>
       <p>地址：{{roomInfo.fy.address}}</p>
     </div>
+    <div class="lock" v-if="roomInfo.znlock.sp_state==2">
+      <h5>智能门锁：<x-button mini plain  @click.native="getPW">获取动态密码</x-button></h5>
+    </div>
     <div class="Supporting">
       <h5>房屋配置：</h5>
       <ul>
@@ -35,7 +38,7 @@
 </template>
 
 <script>
-import {ViewBox, XHeader, Tabbar, TabbarItem, Panel, Swiper} from 'vux'
+import {ViewBox, XHeader, Tabbar, TabbarItem, Panel, Swiper,XButton,Alert } from 'vux'
 import maskInfo from './mask-info.vue'
 
 const baseList = [{
@@ -61,7 +64,9 @@ export default {
     TabbarItem,
     Panel,
     Swiper,
-    maskInfo
+    maskInfo,
+    XButton ,
+    Alert
   },
   data () {
     return {
@@ -78,7 +83,6 @@ export default {
     
     this.$formPost.post('sf_hetong/detail.do',{id:id})
     .then((res) => {
-      console.log(res)
       res.data.data.room = (res.data.data.room.split('0')).length-1
       this.roomInfo = res.data.data
       if(res.data.data.fb_fj_photo){
@@ -147,6 +151,19 @@ export default {
     },
     closeImg () {
       this.maskState = false
+    },
+    getPW () {
+      this.$formPost.post('gongYu/gyDt.do',{id:this.roomInfo.znlock.home_id})
+      .then( res => {
+        this.$vux.alert.show({
+          title: res.data.data.password,
+          content: res.data.data.invalid_time,
+          onShow () {
+          },
+          onHide () {
+          }
+        })
+      })
     }
   }
 }
@@ -154,7 +171,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .info{
+.info{
     background: #e6e6e6;
     padding-bottom: 1px;
     height: 100%;
@@ -194,15 +211,19 @@ body{
   padding-left: 10px;
   font-size: 14px;
 }
-.Supporting,.room-info{
+.Supporting,.room-info,.lock{
   background: #ffffff;
   margin-bottom: 10px;
   padding-left: 10px;
 }
-.Supporting h5,.room-info h5{
+.Supporting h5,.room-info h5,.lock h5{
   font-size: 16px;
   line-height: 30px;
   color: #000;
+}
+.lock h5 button{
+  border-width: inherit;
+  color:blue;
 }
 .Supporting ul::after{
   content: ' ';

@@ -37,7 +37,9 @@
                        <img v-if="item.fb_fj_photo==''" src="../assets/list.png">
                      </div>
                      <div class="list-p fl">
-                       <h3>{{item.fy.xq.name}}</h3>
+                       <h3>{{item.fy.xq.name}}
+                             <img v-if="item.znlock.sp_state==2" src="../assets/login/password.png" height="16" alt="">
+                       </h3>
                        <p>{{item.fy.shi}}室{{item.fy.ting}}厅--{{item.fy.orientation}}</p>
                        <p>{{item.fy.area}}㎡ {{item.fy.floor}}/{{item.fy.floor_top}}</p>
                        <p class="address">{{item.fy.address}}</p>

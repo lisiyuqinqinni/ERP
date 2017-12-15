@@ -31,7 +31,7 @@
 	    @imagechanged="imagechangedtrust_books"
 	    :max-file-size="10485760"
 	    :multiple="true"
-	    inputAccept='image/jpg,image/jpeg,image/png'
+	    inputAccept='image/*'
 		:multiple-size="4"
 	    :isXhr="false">
 	    <img src="../../assets/list.png" alt="">
@@ -49,7 +49,7 @@
 	    @imagechanged="imagechangedIdcare"
 	    :max-file-size="10485760"
 	    :multiple="true"
-	    inputAccept='image/jpg,image/jpeg,image/png'
+	    inputAccept='image/*'
 		:multiple-size="4"
 	    :isXhr="false">
 	    <img src="../../assets/list.png" alt="">
@@ -67,7 +67,7 @@
 	    @imagechanged="imagechangedroom_license"
 	    :max-file-size="10485760"
 	    :multiple="true"
-	    inputAccept='image/jpg,image/jpeg,image/png'
+	    inputAccept='image/*'
 		:multiple-size="4"
 	    :isXhr="false">
 	    <img src="../../assets/list.png" alt="">
@@ -85,7 +85,7 @@
 	    @imagechanged="imagechangedbank_photo"
 	    :max-file-size="10485760"
 	    :multiple="true"
-	    inputAccept='image/jpg,image/jpeg,image/png'
+	    inputAccept='image/*'
 		:multiple-size="4"
 	    :isXhr="false">
 	    <img src="../../assets/list.png" alt="">
@@ -102,7 +102,7 @@
 	    :crop="false"
 	    @imagechanged="imagechangedOther"
 	    :max-file-size="10485760"
-	    inputAccept='image/jpg,image/jpeg,image/png'
+	    inputAccept='image/*'
 	    :multiple="true"
 		:multiple-size="4"
 	    :isXhr="false">

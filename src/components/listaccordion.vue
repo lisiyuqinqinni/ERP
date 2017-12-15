@@ -103,6 +103,9 @@ a{
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.lists .list-p h3 img{
+  vertical-align:baseline;
+}
 .lists .list-p p{
 	font-size: 13px;
 	color: #999;

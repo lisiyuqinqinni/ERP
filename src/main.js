@@ -8,7 +8,7 @@ import qs from 'qs'
 import VueJsonp from 'vue-jsonp'
 import VueScroller from 'vue-scroller'
 import {ToastPlugin } from 'vux'
-
+import  { AlertPlugin } from 'vux'
 
 import Axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -68,7 +68,7 @@ Vue.use(VueJsonp)
 Vue.use(VueScroller)
 Vue.use(ToastPlugin)
 Vue.use(Utils)
-//Vue.use(VueAxios, Axios)
+Vue.use(AlertPlugin)
 
 Vue.prototype.$formPost = formPost
 Vue.prototype.$jsonPost = jsonPost
