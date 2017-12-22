@@ -38,7 +38,7 @@
                      </div>
                      <div class="list-p fl">
                        <h3>{{item.fy.xq.name}}
-                             <img v-if="item.znlock.sp_state==2" src="../assets/login/password.png" height="16" alt="">
+                             <img v-if="item.znlock&&item.znlock.sp_state==2&&hasPri('xt$ms$dtmm',null,null)" src="../assets/login/password.png" height="16" alt="">
                        </h3>
                        <p>{{item.fy.shi}}室{{item.fy.ting}}厅--{{item.fy.orientation}}</p>
                        <p>{{item.fy.area}}㎡ {{item.fy.floor}}/{{item.fy.floor_top}}</p>

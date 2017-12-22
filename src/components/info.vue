@@ -17,7 +17,7 @@
       </ul>
       <p>地址：{{roomInfo.fy.address}}</p>
     </div>
-    <div class="lock" v-if="roomInfo.znlock.sp_state==2">
+    <div class="lock" v-if="roomInfo.znlock.sp_state==2&&this.hasPri('xt$ms$dtmm',null,null)">
       <h5>智能门锁：<x-button mini plain  @click.native="getPW">获取动态密码</x-button></h5>
     </div>
     <div class="Supporting">
