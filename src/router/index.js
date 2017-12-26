@@ -15,6 +15,9 @@ import sf_contract from '@/components/sf_contract/contract'
 import sf_supporting from '@/components/sf_contract/supporting'
 import sf_original from '@/components/sf_contract/original'
 import sf_imgUpload from '@/components/sf_contract/img-upload'
+import orderMenu from '@/components/order/menu'
+import cleaning from '@/components/order/cleaning'
+import repair from '@/components/order/repair'
 
 Vue.use(Router)
 
@@ -88,6 +91,21 @@ export default new Router({
       path: '/slideout',
       name: 'slideout',
       component: Slideout
+    },
+    {
+      path: '/orderMenu',
+      name: 'orderMenu',
+      component: orderMenu
+    },
+    {
+      path: '/cleaning',
+      name: 'cleaning',
+      component: cleaning
+    },
+    {
+      path: '/repair',
+      name: 'repair',
+      component: repair
     }
   ]
 })

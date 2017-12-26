@@ -4,67 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import qs from 'qs'
-import VueJsonp from 'vue-jsonp'
 import VueScroller from 'vue-scroller'
 import {ToastPlugin } from 'vux'
 import  { AlertPlugin } from 'vux'
+import {formPost, imgPost, jsonPost, arrPost} from './config/axaj'
 
-import Axios from 'axios'
-import VueAxios from 'vue-axios'
 import Utils from './lib/utils'
 Vue.config.productionTip = false
-Axios.defaults.baseURL = 'http://erp.ourkyj.com/cougaerp/'
 
-let formPost = Axios.create({
-    transformRequest: [function (data) {
-      // 对 data 进行任意转换处理
-      data = qs.stringify(data)
-      return data
-    }]
-})
-let imgPost = Axios.create({
-    baseURL: 'http://erp.ourkyj.com/cougafile/file/',
-    transformRequest: [function (data) {
-      // 对 data 进行任意转换处理
-      data = qs.stringify(data)
-      return data
-    }]
-})
-let jsonPost = Axios.create({
-    headers:{
-      'Content-Type':'application/json; charset=UTF-8',
-    },
-    responseType: 'json',
-    withCredentials: true,
-    crossDomain:true,
-    transformRequest: [function (data) {
-      // 对 data 进行任意转换处理
-      data = JSON.stringify(qs.parse(data))
-      return data
-    }]
-})
-let arrPost = Axios.create({
-    headers:{
-      'Content-Type':'application/json; charset=UTF-8',
-    },
-    responseType: 'json',
-    withCredentials: true,
-    crossDomain:true,
-    transformRequest: [function (data) {
-      // 对 data 进行任意转换处理
-      data=qs.parse(data)
-      let arr = []
-      let i = 0
-      while (data[i]){
-        arr[i] = data[i]
-        i++
-      }
-      data = JSON.stringify(arr)
-      return data
-    }]
-})
-Vue.use(VueJsonp)
 Vue.use(VueScroller)
 Vue.use(ToastPlugin)
 Vue.use(Utils)

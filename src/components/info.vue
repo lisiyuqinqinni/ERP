@@ -1,7 +1,7 @@
 <template>
   <div class="info" v-if="roomInfo.fy">
     <x-header title="客有家详情" :left-options="{showBack:true}" slot="header" class="header">
-      <div slot="right"><router-link tag="div":to="{path: '/cz_contract',query: {id:this.$route.query.id},replace: true}">租房录入</router-link></div>
+      <div slot="right"><router-link tag="div" :to="{path: '/cz_contract',query: {id:this.$route.query.id},replace: true}">租房录入</router-link></div>
     </x-header>
     <div class="top">
     <div @click="infoimg">
@@ -17,8 +17,11 @@
       </ul>
       <p>地址：{{roomInfo.fy.address}}</p>
     </div>
-    <div class="lock" v-if="roomInfo.znlock.sp_state==2&&this.hasPri('xt$ms$dtmm',null,null)">
+    <div class="lock" v-if="roomInfo.znlock&&roomInfo.znlock.sp_state==2&&this.hasPri('xt$ms$dtmm',null,null)">
       <h5>智能门锁：<x-button mini plain  @click.native="getPW">获取动态密码</x-button></h5>
+    </div>
+    <div class="lock">
+      <h5>保洁维修：<x-button mini plain  @click.native="order">申请保洁/维修</x-button></h5>
     </div>
     <div class="Supporting">
       <h5>房屋配置：</h5>
@@ -164,7 +167,12 @@ export default {
           }
         })
       })
+    },
+    order () {
+      this.$store.commit('changOrderId',this.$route.query.id)
+      this.$router.push({path: '/orderMenu'})
     }
+
   }
 }
 </script>
