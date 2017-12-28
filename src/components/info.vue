@@ -26,7 +26,14 @@
     <div class="Supporting">
       <h5>房屋配置：</h5>
       <ul>
-        <li v-for="item in roomInfo.pzs"><span>{{item.name}}</span></li>
+        <li v-for="item in roomInfo.znlock.devices"><span>{{item.name}}</span></li>
+      </ul>
+    </div>
+    <div class="Supporting" v-if="roomInfo.znlock&&roomInfo.znlock.devices">
+      <h5>智能电表：</h5>
+      <ul>
+        <li v-for="item in roomInfo.znlock.devices" v-if="item.type='elemeter'&&item.description!='总表'"><span>{{item.description}}房间</span></li>
+        <li v-for="item in roomInfo.znlock.devices" v-if="item.type='elemeter'&&item.description=='总表'"><span>{{item.description}}</span></li>
       </ul>
     </div>
     <div class="room-info">
