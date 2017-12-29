@@ -2,7 +2,7 @@
   <div class="cleanitem">
     
     <group title="订单详情">
-        <x-input title="维修项目" text-align="right" :value="wx_item" @input="updateBj($event)"></x-input>
+        <x-input title="维修项目" text-align="right" :value="wx_item" @input="updateWX($event)"></x-input>
         <x-input title="维修详情" text-align="right" :value="content" @input="updateCon($event)"></x-input>
     </group>
     <div class="box">
@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         ...mapMutations({
-            updateBj: 'changWx',
+            updateWX: 'changWx',
             updateCon: 'changWxCon'
         }),
         ...mapActions({

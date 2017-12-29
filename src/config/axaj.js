@@ -23,8 +23,6 @@ let jsonPost = Axios.create({
       'Content-Type':'application/json; charset=UTF-8',
     },
     responseType: 'json',
-    withCredentials: true,
-    crossDomain:true,
     transformRequest: [function (data) {
       // 对 data 进行任意转换处理
       data = JSON.stringify(qs.parse(data))
@@ -36,8 +34,6 @@ let arrPost = Axios.create({
       'Content-Type':'application/json; charset=UTF-8',
     },
     responseType: 'json',
-    withCredentials: true,
-    crossDomain:true,
     transformRequest: [function (data) {
       // 对 data 进行任意转换处理
       data=qs.parse(data)
